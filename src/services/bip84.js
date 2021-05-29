@@ -3,8 +3,8 @@ const BIP84 = require('bip84')
 // internally uses bip39
 const generateMnemonic = () => BIP84.generateMnemonic() 
 
-const generateHDWallet = (seedPhrase, accountIndex, addressIndex) => {
-  const root = getRootAccountFromSeed(seedPhrase)
+const generateHDWallet = (seedPhrase, accountIndex, addressIndex, isTestnet) => {
+  const root = getRootAccountFromSeed(seedPhrase, isTestnet)
   const childAccount = new BIP84.fromZPrv(root.deriveAccount(accountIndex))
   return {
     rootPrivKey: root.getRootPrivateKey(),
@@ -13,7 +13,7 @@ const generateHDWallet = (seedPhrase, accountIndex, addressIndex) => {
   }
 }
 
-const getRootAccountFromSeed = (seedPhrase) => new BIP84.fromSeed(seedPhrase)
+const getRootAccountFromSeed = (seedPhrase, isTestnet) => new BIP84.fromSeed(seedPhrase, '', isTestnet)
 
 const getChildAccount = (root, accountIndex) => new BIP84.fromZPrv(root.deriveAccount(accountIndex))
 

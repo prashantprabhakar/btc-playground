@@ -1,6 +1,6 @@
 
 const router = require("express").Router()
-
+const { isTestnet } = require('../config/config')
 const bitcoin = require('../services/bitcoinlib')
 const bip84 = require('../services/bip84')
 const {handleResponse, isEmptyWithZero} = require('../utils/')
@@ -63,7 +63,7 @@ router.get('/hd-wallet', (req, res) => {
       return handleResponse(res, 400, `accountIndex and addressIndex should be number only`)
     }
 
-    const data = bip84.generateHDWallet(seedPhrase, accountIndex, addressIndex,)
+    const data = bip84.generateHDWallet(seedPhrase, accountIndex, addressIndex, isTestnet)
    
     return handleResponse(res, 200, 'Wallet created successfully', data)
   } catch(error) {

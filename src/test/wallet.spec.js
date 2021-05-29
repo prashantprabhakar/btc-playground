@@ -11,12 +11,20 @@ describe('wallets', () => {
     expect(seedPhrase.split(' ')).to.have.lengthOf(12)
   })
 
-  it('[bip84] get SegWit from seed phrase', () => {
+  it('[bip84] [btc chain] get SegWit from seed phrase', () => {
     const seedPhrase = "spice admit drop obvious style odor fence huge unaware myself purity avocado"
-    let root = bip84.getRootAccountFromSeed(seedPhrase)
+    let root = bip84.getRootAccountFromSeed(seedPhrase, false)
     let childAccount = bip84.getChildAccount(root, 0)
     let {address} = bip84.getChildAddress(childAccount, 0)
     expect(address).to.equal('bc1q7gdsljutr3q24kzcvz6k9er5h3k602a6u9fg7z')
+  })
+
+  it('[bip84] [testnet] get SegWit from seed phrase', () => {
+    const seedPhrase = "spice admit drop obvious style odor fence huge unaware myself purity avocado"
+    let root = bip84.getRootAccountFromSeed(seedPhrase, true)
+    let childAccount = bip84.getChildAccount(root, 0)
+    let {address} = bip84.getChildAddress(childAccount, 0)
+    expect(address).to.equal('tb1q7rpssh2f5ratdctxeq4tpym8etrpn9z28nxgkv')
   })
 
   it('generating p2sh keys from given public keys and m', () => {
