@@ -11,6 +11,9 @@ This project is a assignment for crypto.com.
 #### Run the project
      npm install
      npm start
+
+##### Run tests
+     npm test
     
 #### Libearies used
 * [bitcoinjo-lib](https://www.npmjs.com/package/bitcoinjs-lib): Liberary used to generate multi-sig wallet key
