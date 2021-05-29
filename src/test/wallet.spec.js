@@ -1,5 +1,5 @@
 const { describe, it } = require('mocha')
-const { expect } = require('chai');  // Using Assert style
+const { expect } = require('chai');
 
 const bitcoin = require('../services/bitcoinlib')
 const bip39 = require('../services/bip39')
