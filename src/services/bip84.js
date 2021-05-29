@@ -1,5 +1,7 @@
 const BIP84 = require('bip84')
 
+// internally uses bip39
+const generateMnemonic = () => BIP84.generateMnemonic() 
 
 const generateHDWallet = (seedPhrase, accountIndex, addressIndex) => {
   const root = getRootAccountFromSeed(seedPhrase)
@@ -23,6 +25,7 @@ const getChildAddress = (childAccount, addressIndex) => ({
 
 
 module.exports = {
+  generateMnemonic,
   generateHDWallet,
   // Exported only for testing
   getRootAccountFromSeed,

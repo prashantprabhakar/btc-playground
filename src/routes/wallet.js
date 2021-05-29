@@ -2,7 +2,6 @@
 const router = require("express").Router()
 
 const bitcoin = require('../services/bitcoinlib')
-const bip39 = require('../services/bip39')
 const bip84 = require('../services/bip84')
 const {handleResponse, isEmptyWithZero} = require('../utils/')
 const l = require('../utils/logger').root.child({ 'module': 'commonCtrl' })
@@ -20,7 +19,7 @@ router.get("/ping", (_, res) => {
 router.get('/create-mnemonic', (req, res) => {
   try {
     // uses crypto.randomBytes under the hood., defaults to 128-bits of entropy
-    const mnemonic = bip39.generateMnemonic()
+    const mnemonic = bip84.generateMnemonic()
     return handleResponse(res, 200, 'Mnemonic created successfully', {mnemonic})
   } catch(error) {
     l.error(`Error in creating seed phrase`, { error })

@@ -2,13 +2,12 @@ const { describe, it } = require('mocha')
 const { expect } = require('chai');
 
 const bitcoin = require('../services/bitcoinlib')
-const bip39 = require('../services/bip39')
 const bip84 = require('../services/bip84')
 
 
 describe('wallets', () => {
-  it('[bip39] generates seed phrase', () => {
-    let seedPhrase = bip39.generateMnemonic()
+  it('[bip84] generates seed phrase', () => {
+    let seedPhrase = bip84.generateMnemonic()
     expect(seedPhrase.split(' ')).to.have.lengthOf(12)
   })
 
