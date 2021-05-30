@@ -17,5 +17,4 @@ This project is a assignment for crypto.com.
     
 #### Libearies used
 * [bitcoinjo-lib](https://www.npmjs.com/package/bitcoinjs-lib): Liberary used to generate multi-sig wallet key
-* [bip84](https://www.npmjs.com/package/bip84): A wrapper around bitcoinjs-lib for deriving segwit + bech32 addresses.
-* [bip39](https://www.npmjs.com/package/bip39): JavaScript implementation of Bitcoin [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki): Mnemonic code for generating deterministic keys
+* [bip84](https://www.npmjs.com/package/bip84): A wrapper around bitcoinjs-lib for deriving segwit + bech32 addresses. Internaly uses [bip39](https://www.npmjs.com/package/bip39)
